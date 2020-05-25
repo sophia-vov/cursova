@@ -1,0 +1,58 @@
+CREATE DATEBASE system for restorant;
+USE system for restorant;
+CREATE TABLE restorant (
+  restorant_id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(30),
+  adress VARCHAR(30));
+INSERT INTO restorant VALUES(NULL, 'Zina', 'Lviv,Shevshenka 88');
+CREATE TABLE menu (
+menu_id INT AUTO_INCREMENT PRIMARY KEY,
+amount_dishes INT),
+INSERT INTO menu VALUES(NULL, 10, 10);
+CREATE TABLE dish (
+ dish_id INT AUTO_INCREMENT PRIMARY KEY,
+ name VARCHAR(30),
+ price INT,
+ weight INT);
+INSERT INTO dish VALUES(NULL, 'fish', 124, 250);
+INSERT INTO dish VALUES(NULL, 'baket chicken', 150, 350);
+INSERT INTO dish VALUES(NULL, 'legetables', 50, 150);
+INSERT INTO dish VALUES(NULL, 'asorti meate', 400, 500);
+INSERT INTO dish VALUES(NULL, 'potato', 50, 100);
+INSERT INTO dish VALUES(NULL, 'pasta', 100, 250);
+INSERT INTO dish VALUES(NULL, 'pizza', 150, 450);
+INSERT INTO dish VALUES(NULL, 'coffee', 24, 50);
+INSERT INTO dish VALUES(NULL, 'grean tea', 60, 450);
+INSERT INTO dish VALUES(NULL, 'vodka', 600, 500);
+CREATE TABLE ordering (
+ordering_id INT AUTO_INCREMENT PRIMARY KEY,
+amount_dish INT,
+date DATE(),
+dish_id INT,
+FOREIGN KEY (dish_id) REFERENCES dish (dish_id));
+INSERT INTO ordering VALUES(NULL, 12, '2020-04-03', 1);
+INSERT INTO ordering VALUES(NULL, 8, '2020-05-03', 2);
+INSERT INTO ordering VALUES(NULL, 6, '2020-01-03', 3);
+INSERT INTO ordering VALUES(NULL, 9, '2020-04-05', 4);
+INSERT INTO ordering VALUES(NULL, 15, '2020-07-03', 5);
+INSERT INTO ordering VALUES(NULL, 11, '2020-22-03', 6);
+INSERT INTO ordering VALUES(NULL, 10, '2020-31-03', 7);
+INSERT INTO ordering VALUES(NULL, 1, '2020-02-08', 8);
+INSERT INTO ordering VALUES(NULL, 4, '2020-05-02', 9);
+INSERT INTO ordering VALUES(NULL, 5, '2020-04-03', 10);
+CREATE TABLE bill (
+bill_id INT AUTO_INCREMENT PRIMARY KEY,
+total_price_id INT,
+tip INT,
+ordering_id INT,
+FOREIGN KEY (ordering_id) REFERENCES ordering (ordering_id));
+INSERT INTO ordering VALUES(NULL, 1245, 300, 1);
+INSERT INTO ordering VALUES(NULL, 1500, 250, 2);
+INSERT INTO ordering VALUES(NULL, 5000, 500, 3);
+INSERT INTO ordering VALUES(NULL, 1000, 350, 4);
+INSERT INTO ordering VALUES(NULL, 10000, 1000, 5);
+INSERT INTO ordering VALUES(NULL, 130, 20, 6);
+INSERT INTO ordering VALUES(NULL, 3400, 700, 7);
+INSERT INTO ordering VALUES(NULL, 1550, 100, 8);
+INSERT INTO ordering VALUES(NULL, 125, 30, 9);
+INSERT INTO ordering VALUES(NULL, 300, 60, 10);
